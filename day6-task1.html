@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 6 - Task 1</title>
+</head>
+
+<body>
+
+    <h1>Keyboard and Mouse Events</h1>
+
+    <input type="text" id="myInput" placeholder="Click here and press a key">
+
+    <p id="keyResult"></p>
+    <p id="mouseResult"></p>
+
+    <script>
+        let input = document.getElementById("myInput");
+
+        input.addEventListener("keydown", function(event) {
+            document.getElementById("keyResult").innerHTML =
+                "Key Code: " + event.keyCode;
+        });
+
+        input.addEventListener("mousedown", function(event) {
+            let buttonName;
+
+            if (event.button === 0) {
+                buttonName = "Left Mouse Button";
+            } else if (event.button === 1) {
+                buttonName = "Middle Mouse Button";
+            } else if (event.button === 2) {
+                buttonName = "Right Mouse Button";
+            }
+
+            document.getElementById("mouseResult").innerHTML =
+                "Mouse Button: " + buttonName;
+        });
+    </script>
+
+</body>
+      </html>
