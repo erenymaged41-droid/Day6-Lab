@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 6 - Task 2</title>
+</head>
+
+<body>
+
+    <h1>Digital Clock</h1>
+
+    <button id="startButton">Start Clock</button>
+
+    <p id="clock"></p>
+
+    <script>
+        let clockInterval = null;
+
+        const startButton = document.getElementById("startButton");
+        const clock = document.getElementById("clock");
+
+        startButton.addEventListener("click", function () {
+            if (clockInterval !== null) {
+                return;
+            }
+
+            alert("Clock Started");
+
+            function updateClock() {
+                let now = new Date();
+
+                clock.innerHTML = now.toLocaleTimeString();
+            }
+
+            updateClock();
+
+            clockInterval = setInterval(updateClock, 1000);
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.altKey && event.key.toLowerCase() === "w") {
+                if (clockInterval !== null) {
+                    clearInterval(clockInterval);
+                    clockInterval = null;
+                    alert("Clock stopped");
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
