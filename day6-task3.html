@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Images Counter</title>
+</head>
+
+<body>
+
+    <h1>Images Counter</h1>
+
+    <p>Click on any image:</p>
+
+    <img src="https://picsum.photos/200/150?random=1" width="200" height="150" id="img1">
+    <img src="https://picsum.photos/200/150?random=2" width="200" height="150" id="img2">
+    <img src="https://picsum.photos/200/150?random=3" width="200" height="150" id="img3">
+
+    <h2>Counter: <span id="counter">0</span></h2>
+
+    <script>
+
+        let counter = 0;
+
+        function increaseCounter() {
+            counter++;
+            document.getElementById("counter").innerHTML = counter;
+            alert("Score: " + counter);
+        }
+
+        document.getElementById("img1").addEventListener("click", increaseCounter);
+        document.getElementById("img2").addEventListener("click", increaseCounter);
+        document.getElementById("img3").addEventListener("click", increaseCounter);
+
+        setTimeout(function() {
+
+            document.getElementById("img1").removeEventListener("click", increaseCounter);
+            document.getElementById("img2").removeEventListener("click", increaseCounter);
+            document.getElementById("img3").removeEventListener("click", increaseCounter);
+
+            alert("Game Over");
+
+        }, 3000);
+
+    </script>
+
+</body>
+      </html>
