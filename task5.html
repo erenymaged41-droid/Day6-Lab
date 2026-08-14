@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 5 - Advertising Window</title>
+</head>
+
+<body>
+
+    <h1>Advertising Window</h1>
+
+    <a href="#" id="openAd">Open Advertisement</a>
+
+    <br><br>
+
+    <a href="#" id="closeAd">Close Advertisement</a>
+
+    <script>
+        let adWindow;
+
+        document.getElementById("openAd").addEventListener("click", function(event) {
+            event.preventDefault();
+
+            setTimeout(function() {
+
+                adWindow = window.open(
+                    "",
+                    "Advertisement",
+                    "width=500,height=500"
+                );
+
+                if (adWindow) {
+                    adWindow.document.write(`
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <title>Advertisement</title>
+                        </head>
+                        <body>
+                            <h1>Advertisement</h1>
+
+                            <p>
+                                Welcome to our advertisement page.
+                                This page contains important information
+                                about our products and services.
+                            </p>
+
+                            <p>
+                                Thank you for visiting our website.
+                                We hope you enjoy our services.
+                            </p>
+                        </body>
+                        </html>
+                    `);
+
+                    adWindow.document.close();
+                }
+
+            }, 3000);
+        });
+
+        document.getElementById("closeAd").addEventListener("click", function(event) {
+            event.preventDefault();
+
+            if (adWindow && !adWindow.closed) {
+                adWindow.close();
+            }
+        });
+    </script>
+
+</body>
+</html>
